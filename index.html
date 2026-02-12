@@ -15,11 +15,28 @@
     <div>
         <h1 class="fw-bold text-center fs-1">SignUp</h1>
         <form class="px-3">
-            <input class="form-control form-control-lg mt-4" type="text" name="" id="fname" placeholder="First Name">
-            <input class="form-control form-control-lg mt-4" type="text" name="" id="lname" placeholder="Last Name">
-            <input class="form-control form-control-lg mt-4" type="email" name="" id="email" placeholder="E-mail">
-            <input class="form-control form-control-lg mt-4" type="password" name="" id="password" placeholder="Password">
-            <input class="form-control form-control-lg mt-4" type="password" name="" id="confirmpassword" placeholder="Confirm Password">
+            <div class="form-floating mt-4">
+                <input class="form-control" type="text" name="" id="fname" placeholder="">
+                <label for="fname">First Name</label>
+            </div>
+            <div class="form-floating mt-4">
+                <input class="form-control" type="text" name="" id="lname" placeholder="Last Name">
+                <label for="lname">Last Name</label>
+            </div>
+            <div class="form-floating mt-4">
+                <input class="form-control" type="email" name="" id="email" placeholder="E-mail">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="form-floating mt-4">
+                <input class="form-control form-control-lg mt-4" type="password" name="" id="password"
+                    placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+            <div class="form-floating mt-4">
+                <input class="form-control form-control-lg mt-4" type="password" name="" id="confirmpassword"
+                    placeholder="Confirm Password">
+                <label for="confirmpassword">Confirm Password</label>
+            </div>
             <button id="signup" class="btn btn-primary btn-lg mt-4">SignUp</button>
         </form>
     </div>
