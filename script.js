@@ -48,16 +48,18 @@ function storeSignUpDetails(){
         }
         error.textContent='';
         if(checkForUserAlreadyExisted(userDetails)){
-            success.textContent='Your Email is already exist please login in!!'
-        }else
-        success.textContent="Account created successfully!!"
+            error.textContent='Your Email is already exist please login in!!'
+        }else{
+            success.textContent="Account created successfully!!"
+            reloadPage();
+        }
 
-        console.log(userDetails)
+    
     }
    
 }
 
-// checkForUserAlreadyExisted
+// check For User Already Existed
 function checkForUserAlreadyExisted(userDetails){
     let isUserAlreadyExist=false;
     allUserDetails=JSON.parse(localStorage.getItem('allUserDetails'))??[];
@@ -69,9 +71,21 @@ function checkForUserAlreadyExisted(userDetails){
         }
     });
     if(isUserAlreadyExist)
-        return isUserAlreadyExist;
+    return isUserAlreadyExist;
+
+    userDetails.date=new Date();
     allUserDetails.push(userDetails);
     localStorage.setItem('allUserDetails',JSON.stringify(allUserDetails));
     return isUserAlreadyExist;
+}
+
+// reload page
+function reloadPage(){
+    fname.value="";
+    lname.value="";
+    email.value="";
+    password.value="";
+    confirmPassword.value="";
+
 }
 // console.log(JSON.parse(localStorage.getItem('user')))
