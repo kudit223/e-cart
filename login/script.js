@@ -32,16 +32,25 @@ function checkLoginDetails() {
             if(user.email===emailValue&&user.password===passwordValue){
                 //user is present in my local storage
                 error.textContent='';
-                alert('login successfully!!');
                 user.lastLoginDate=new Date();
                 user.isRemberMe=isChecked;
-                const currentLoginUser=user; //current login user
+                const currentLoginUser={
+                    email:user.email,
+                    password:user.password,
+                    token:getToken()
+                }; //current login user
                 localStorage.setItem('currentLoginUser',JSON.stringify(currentLoginUser));
                 localStorage.setItem('allUserDetails',JSON.stringify(allUserDetails));
+                window.location.href='/profile/index.html';
                 return;
             }else{
                 error.textContent='Invalid email or password!!'
             }
         }
     }
+}
+// genrate token
+
+function getToken(){
+    return Math.random();
 }
