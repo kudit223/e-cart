@@ -24,6 +24,8 @@ function storeSignUpDetails(){
     let emailValue=email.value;
     let passwordValue=password.value;
     let confirmPasswordValue=confirmPassword.value;
+    error.textContent='';
+    success.textContent='';
 
     if(!fnameValue||!lnameValue||!emailValue||!passwordValue||!confirmPasswordValue){
         error.textContent="Please enter all required Fields!";
@@ -46,10 +48,11 @@ function storeSignUpDetails(){
         password:passwordValue,
         confirmPassword:confirmPasswordValue
         }
-        error.textContent='';
+        
         if(checkForUserAlreadyExisted(userDetails)){
             error.textContent='Your Email is already exist please login in!!'
         }else{
+            error.textContent='';
             success.textContent="Account created successfully!!"
             reloadPage();
         }
@@ -63,17 +66,15 @@ function storeSignUpDetails(){
 function checkForUserAlreadyExisted(userDetails){
     let isUserAlreadyExist=false;
     allUserDetails=JSON.parse(localStorage.getItem('allUserDetails'))??[];
-    
-    allUserDetails.forEach(item=>{
-        if(item.email===userDetails.email){
-            isUserAlreadyExist=true;
-            return;
-        }
-    });
-    if(isUserAlreadyExist)
-    return isUserAlreadyExist;
 
-    userDetails.date=new Date();
+    for(let user of allUserDetails){
+        if(user.email===userDetails.email){
+            isUserAlreadyExist=true;
+            return isUserAlreadyExist
+        }
+    }
+
+    userDetails.sigupDate=new Date();
     allUserDetails.push(userDetails);
     localStorage.setItem('allUserDetails',JSON.stringify(allUserDetails));
     return isUserAlreadyExist;
