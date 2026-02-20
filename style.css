@@ -1,3 +1,11 @@
 *{
-    
+    margin: 0px;
+    padding: 0px;
+}
+.fw-500{
+    font-weight: 500;
+}
+
+a.nav-link:hover{
+ text-decoration: underline;
 }
