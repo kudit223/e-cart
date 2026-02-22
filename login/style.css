@@ -1,4 +1,12 @@
 /* login style */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+a.nav-link:hover{
+ text-decoration: underline;
+}
 
 .mainContainer{
     box-shadow: 0 0 10px grey;
