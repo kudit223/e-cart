@@ -41,7 +41,7 @@ function checkLoginDetails() {
                 }; //current login user
                 localStorage.setItem('currentLoginUser',JSON.stringify(currentLoginUser));
                 localStorage.setItem('allUserDetails',JSON.stringify(allUserDetails));
-                window.location.href='/profile/index.html';
+                window.location.href='/shop/index.html';
                 return;
             }else{
                 error.textContent='Invalid email or password!!'
