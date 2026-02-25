@@ -6,3 +6,10 @@
 a.nav-link:hover{
  text-decoration: underline;
 }
+.color{
+    margin-top:3px ;
+    height: 15px;
+    width: 15px;
+    background-color: blue;
+    border-radius: 50%;
+}
