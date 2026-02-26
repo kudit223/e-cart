@@ -13,6 +13,7 @@ if (currentLoginUser) {
     //if product details already in localstorage then this
     if (productsDetails) {
         renderAllProducts();
+        addEventListenerToTheCategoryBtn();
     }
     else {//productDetails=null
         fetchProducts(BASEURL)
@@ -27,7 +28,8 @@ if (currentLoginUser) {
                 });
                 localStorage.setItem('productsDetails', JSON.stringify(productsDetails));
                 filterProductsByCategory(productsDetails);
-
+                renderAllProducts();
+                addEventListenerToTheCategoryBtn();
                 // console.log('data',productsDetails);
             }).catch((err) => { console.log(`fetch Products api failed${err}`) });
     }
@@ -206,4 +208,32 @@ function nonClothingProductsCard(container, products) {
 
     //now put products into display products container
     container.appendChild(productsContainer)
+}
+
+//add event listener to all category button
+function addEventListenerToTheCategoryBtn(){
+    const allCategory=document.querySelector('#allCategory')
+    const menCategory=document.querySelector('#menCategory')
+    const womenCategory=document.querySelector('#womenCategory')
+    const electronicsCategory=document.querySelector('#electronicsCategory')
+    const jewelleryCategory=document.querySelector('#jewelleryCategory')
+
+    //added event listener
+    allCategory.addEventListener('click',renderAllProducts);
+    menCategory.addEventListener('click',renderMensProducts);
+    womenCategory.addEventListener('click',function(){
+        const displayProductsContainer = document.querySelector('#displayProductsContainer');
+        displayProductsContainer.innerHTML='';
+        renderWomensProducts();
+    });
+    electronicsCategory.addEventListener('click',function(){
+        const displayProductsContainer = document.querySelector('#displayProductsContainer');
+        displayProductsContainer.innerHTML='';
+        renderElectronicsProducts();
+    });
+    jewelleryCategory.addEventListener('click',function(){
+        const displayProductsContainer = document.querySelector('#displayProductsContainer');
+        displayProductsContainer.innerHTML='';
+        renderJeweleryProducts();
+    });
 }
