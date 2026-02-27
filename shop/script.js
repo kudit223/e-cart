@@ -212,28 +212,58 @@ function nonClothingProductsCard(container, products) {
 
 //add event listener to all category button
 function addEventListenerToTheCategoryBtn(){
-    const allCategory=document.querySelector('#allCategory')
-    const menCategory=document.querySelector('#menCategory')
-    const womenCategory=document.querySelector('#womenCategory')
-    const electronicsCategory=document.querySelector('#electronicsCategory')
-    const jewelleryCategory=document.querySelector('#jewelleryCategory')
+    const allCategory=document.querySelector('#allCategory');
+    const menCategory=document.querySelector('#menCategory');
+    const womenCategory=document.querySelector('#womenCategory');
+    const electronicsCategory=document.querySelector('#electronicsCategory');
+    const jewelleryCategory=document.querySelector('#jewelleryCategory');
 
     //added event listener
-    allCategory.addEventListener('click',renderAllProducts);
-    menCategory.addEventListener('click',renderMensProducts);
+    allCategory.addEventListener('click',function(){
+        renderAllProducts();
+        removeActiveClassFromFilters();
+        this.classList.add('active');
+    });
+    menCategory.addEventListener('click',function(){
+        renderMensProducts();
+        removeActiveClassFromFilters();
+        this.classList.add('active');
+    });
     womenCategory.addEventListener('click',function(){
         const displayProductsContainer = document.querySelector('#displayProductsContainer');
         displayProductsContainer.innerHTML='';
         renderWomensProducts();
+        removeActiveClassFromFilters();
+        this.classList.add('active');
     });
     electronicsCategory.addEventListener('click',function(){
         const displayProductsContainer = document.querySelector('#displayProductsContainer');
         displayProductsContainer.innerHTML='';
         renderElectronicsProducts();
+        removeActiveClassFromFilters();
+        this.classList.add('active');
     });
     jewelleryCategory.addEventListener('click',function(){
         const displayProductsContainer = document.querySelector('#displayProductsContainer');
         displayProductsContainer.innerHTML='';
         renderJeweleryProducts();
+        removeActiveClassFromFilters();
+        this.classList.add('active');
     });
+}
+
+//this function will remove active class from category filter
+function removeActiveClassFromFilters(){
+    const allCategory=document.querySelector('#allCategory');
+    const menCategory=document.querySelector('#menCategory');
+    const womenCategory=document.querySelector('#womenCategory');
+    const electronicsCategory=document.querySelector('#electronicsCategory');
+    const jewelleryCategory=document.querySelector('#jewelleryCategory');
+
+    //remove active class
+    allCategory.classList.remove('active');
+    menCategory.classList.remove('active');
+    womenCategory.classList.remove('active');
+    electronicsCategory.classList.remove('active');
+    jewelleryCategory.classList.remove('active');
 }
