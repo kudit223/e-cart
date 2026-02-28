@@ -164,7 +164,7 @@ function clothingProductsCard(container, products) {
                         </div>
                     </div>
                     <div class="card-footer d-grid">
-                        <button class="btn btn-dark col">Add to Cart</button>
+                        <button class="btn btn-dark col" onclick='addToCart(${product.id})'>Add to Cart</button>
                         
                     </div>
                 </div>
@@ -199,7 +199,7 @@ function nonClothingProductsCard(container, products) {
                         </div>
                     </div>
                     <div class="card-footer d-grid">
-                        <button class="btn btn-dark col">Add to Cart</button>
+                        <button class="btn btn-dark col" onclick='addToCart(${product.id})'>Add to Cart</button>
                         
                     </div>
                 </div>
@@ -266,4 +266,12 @@ function removeActiveClassFromFilters(){
     womenCategory.classList.remove('active');
     electronicsCategory.classList.remove('active');
     jewelleryCategory.classList.remove('active');
+}
+
+
+// this function will store add to cart produts into local storage
+
+function addToCart(id){
+    const addToCartIds=[];
+    console.log('product id',id);
 }
